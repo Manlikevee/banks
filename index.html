@@ -4,14 +4,215 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    figma url
-    https://www.figma.com/file/vENIhZ931kLp8Cn08WT20L/Nigerian-Bank-Logos-Collection-(Community)?type=design&node-id=17%3A794&mode=design&t=S2TkIwGR8Df0LJik-1
+
+<div class="imgbox">
+    <img src="nigerialogos_logo.svg" alt="">
+  
+    
+</div>
+<div class="textbox">
+    <div class="box1">
+        <div class="text">
+            Nigeria Logos an open source collection
+               of high quality, pixel perfect Nigerian
+               company logos for free use.
+           </div>
+           <br>
+           <div class="search">
+            Search through 100+ vector logos from 36+ contributors
+           </div>
+           <br>
+           <button>
+            Contribute on Github
+           </button>
+    </div>
+   <div class="two">
+    <div class="input">
+        <input type="text" placeholder="search for a company" id="search" oninput="filter()">
+    </div>
+   </div>
+  
+    
+    
+   </div>
+
+ 
+
+<div class="container" id="container">
+
     
 
+        <div class="box">
 
+            <div id="banks" class="emi" >
+    
+            </div>
+
+        </div>
 
     
+   
+ 
+</div>
+
+    
+
+    <script>
+    let banks = [
+        {bankname: ' Access Bank',
+         bank_logo: 'access_bank/accessbank.png'
+        },
+        {bankname: 'alat Bank',
+         bank_logo: 'alat/Alat.png'
+        },
+        {bankname: 'ASO Savings and Loansk',
+         bank_logo: 'aso/ASO.png'
+        },
+        {bankname: ' Bowen Microfinance Bank',
+         bank_logo: 'bowen/Bowen.png'
+        },
+        {bankname: 'cemcs Microfinance Bank',
+         bank_logo: 'cemcs/cemcs.png'
+        },
+        {bankname: 'Citibank Nigeria',
+         bank_logo: 'citi/citibank.png'
+        },
+        {bankname: 'Ecobank Nigeria',
+         bank_logo: 'eco/ecobank.png'
+        },
+        {bankname: 'Ekondo Microfinance Bank',
+         bank_logo: 'ekondo/ekondo.png'
+        },
+        {bankname: 'Fidelity Bank',
+         bank_logo: 'fidelity/fidelitybank.png'
+        },
+        {bankname: 'First Bank of Nigeria',
+         bank_logo: 'first_bank/firstbank.png'
+        },
+        {bankname: 'First City Monument Bank',
+         bank_logo: 'first_city/fcmb.png'
+        },
+        {bankname: 'Globus Bank',
+         bank_logo: 'globus/globus.png'
+        },
+        {bankname: 'Guaranty Trust Bank',
+         bank_logo: 'gtbank/gtbank.png'
+        }, 
+        {bankname: 'Hasal Microfinance Bankk',
+         bank_logo: 'hasal/hasal.png'
+        },  
+        {bankname: 'Heritage Bank',
+         bank_logo: 'heritage/heritagebank.png'
+        },    
+        {bankname: 'Jaiz Bank',
+         bank_logo: 'jaiz/jaizbank.png'
+        },      
+        {bankname: 'Jaiz Bank',
+         bank_logo: 'jaiz/jaizbank.png'
+        },     
+        {bankname: 'Keystone Bank',
+         bank_logo: 'keystone/keystonebank.png'
+        },      
+        {bankname: 'Kuda Bank',
+         bank_logo: 'kuda/kuda.png'
+        },      
+        {bankname: 'One Finance',
+         bank_logo: 'one_finance/onefinance.png'
+        },      
+        {bankname: 'Paga',
+         bank_logo: 'paga/paga.png'
+        },    
+        {bankname: 'Parallex Bank',
+         bank_logo: 'parallex/parallex.png'
+        },    
+        {bankname: 'PayCom',
+         bank_logo: 'paycom/paycom.png'
+        },    
+        {bankname: 'Polaris Bank',
+         bank_logo: 'polaris/polarisbank.png'
+        },    
+        {bankname: 'Providus Bank',
+         bank_logo: 'providus/providus.png'
+        },   
+        {bankname: 'Rubies MFB',
+         bank_logo: 'rubies/rubies.png'
+        }, 
+        {bankname: 'Sparkle Microfinance Bank',
+         bank_logo: 'sparkle/sparkle.png'
+        }, 
+        {bankname: 'Stanbic IBTC Bank',
+         bank_logo: 'stanbic_ibtc/stanbic_ibtc.png'
+        }, 
+        {bankname: 'Standard Chartered Bank',
+         bank_logo: 'standard_chartered/standardchartered.png'
+        }, 
+        {bankname: 'Sterling Bank',
+         bank_logo: 'sterling/sterling.png'
+        }, 
+        {bankname: 'Suntrust Bank',
+         bank_logo: 'suntrust/suntrust.png'
+        }, 
+        {bankname: 'TAJ Bank',
+         bank_logo: 'taj/taj.png'
+        }, 
+        {bankname: 'TCF MFB',
+         bank_logo: 'tcf/tcf.png'
+        },   
+        {bankname: 'Titan Trust Bank',
+         bank_logo: 'titan/titan.png'
+        },     
+        {bankname: ' Union Bank of Nigeria',
+         bank_logo: 'union/union.png'
+        },  
+        {bankname: ' United Bank For Africa',
+         bank_logo: 'uba/uba.png'
+        },  
+        {bankname: ' Unity Bank',
+         bank_logo: 'unity/unity.png'
+        },  
+        {bankname: ' VFD',
+         bank_logo: 'vfd/vfd.png'
+        },  
+        {bankname: 'Wema Bank',
+         bank_logo: 'wema/wema.png'
+        }, 
+        {bankname: 'Zenith Bank',
+         bank_logo: 'zenith/zenith.png'
+        }, 
+    ]
+    const bankHTML = banks.map(function(bank) {
+            return `
+                <div class="bank"> 
+                    ${bank.bankname}
+                    <img src="${bank.bank_logo}" alt="${bank.bankname} Logo">
+                </div>`;
+        });
+
+        const bankList = bankHTML.join("");
+        document.getElementById('banks').innerHTML = bankList;
+
+
+        function filter() {
+            const search = document.getElementById('search').value;
+            let myfiltereddata = banks.filter(
+                detail => detail.bankname.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+            );
+            let mydata = '';
+            const container = document.getElementById('banks');
+            myfiltereddata.forEach(stored => {
+                mydata +=  `
+                    <div class="bank">
+                        <img src="${stored.bank_logo}" alt="${stored.bankname} Logo">
+                        ${stored.bankname}
+                    </div>`;
+            });
+            container.innerHTML = mydata;
+        }filter() 
+
+
+    </script>
 </body>
 </html>
