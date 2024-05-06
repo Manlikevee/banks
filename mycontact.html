@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="emi.css">
+</head>
+<body>
+    <style>
+   
+    </style>
+   <div class="header">
+    <div class="logo">
+        <img src="Logo Here.png" alt="">
+    </div>
+    <div class="Homebox">
+        <div class="home">
+            Homr
+        </div>
+        <div class="Features">
+            Features <img src="Arrow 1.png" alt="">
+        </div>
+        <div class="Blog">
+            Blog
+        </div>
+     <div class="Shop">
+        Shop
+     </div>
+     <div class="About">
+        About
+     </div>
+     <div class="contact">
+        Contact
+     </div>
+     <div class="user">
+        <img src="Mask group.png" alt="">
+     </div>
+     <div class="vector">
+        <img src="Vector (4).png" alt="">
+     </div>
+
+    </div>
+   </div> 
+   <div class="section1">
+    <div class="contactus">
+        Contact us
+       </div>
+       <div class="any">
+        Any question or remarks? Just write us a message!
+       </div>
+   </div>
+<div class="section2">
+    <div class="box"  id="userdetailsbox">
+        <div class="side1">
+            <img src="Frame 1 (1).png" alt="">
+        </div>
+        <div class="side2">
+<div class="emi">
+    <div class="ggg">
+        <div class="inputbox1">
+            <div class="input">
+         
+                <input type="text" class="firstname" placeholder="   firstname" id="fn">
+            </div>
+        </div>
+       <div class="inputbox2">
+        <div class="input">
+        
+            <input type="text" class="lastname" placeholder="lastname" id="lastname">
+        </div>
+       </div>
+       
+    </div>
+
+<div class="ooo">
+<div class="inputbox3">
+<div class="input">
+
+    <input type="email" class="firstname" placeholder="    email" id="email">
+</div>
+</div>
+
+<div class="inputbox4">
+<div class="input">
+
+<input type="text" class="firstname" placeholder="      Phonenumber" id="Phonenumber">
+</div>
+</div>
+
+</div>
+
+<div class="radio">
+<img src="Group 1000001758.png" alt="">
+</div>
+
+<div class="message">
+<input type="text" class="enter" placeholder="writeyourmessage" id="writeyourmessage">
+</div>
+<button class="button" onclick="regera()" id="btn">
+send message
+</button>
+</div>
+
+</div>
+        </div>
+      
+    </div>
+   
+</div>
+</body>
+<script>
+
+let details = [];
+    let myuserarray = localStorage.getItem('userdetails');
+
+    if (myuserarray) {
+        details = JSON.parse(myuserarray);
+    }
+
+    function regera() {
+        const firstname = document.getElementById('fn').value;
+        const lastname = document.getElementById('lastname').value;
+        const email = document.getElementById('email').value;
+        const Phonenumber = document.getElementById('Phonenumber').value;
+        const message = document.getElementById('writeyourmessage').value;
+
+        const display = {
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            Phonenumber: Phonenumber
+        };
+
+        details.push(display);
+        const usersString = JSON.stringify(details);
+        localStorage.setItem('userdetails', usersString);
+    }
+
+    function autofill() {
+    const mailvalue = document.getElementById('email').value;
+    const checking = details.find(detail => detail.email === mailvalue);
+    var confirmation;
+
+    if (checking) {
+        confirmation = confirm('Hello ' + checking.firstname + ', are you sure you want to autofill details?');
+        if (confirmation) {
+            document.getElementById('fn').value = checking.firstname;
+            document.getElementById('lastname').value = checking.lastname;
+            document.getElementById('Phonenumber').value = checking.Phonenumber;
+        }
+    } else {
+        console.log('No matching detail found');
+    }
+}
+
+    document.getElementById('email').addEventListener('blur', autofill);
+  
+
+    function displaydetails() {
+    const searchInput = document.getElementById('fn').value;
+    let filteredData = details.filter(user => user.firstname === searchInput);
+
+    if (filteredData.length > 0) {
+        const user = filteredData[0]; 
+
+   
+        document.getElementById('fn').value = user.firstname;
+        document.getElementById('lastname').value = user.lastname;
+        document.getElementById('Phonenumber').value = user.Phonenumber;
+        document.getElementById('email').value = user.email;
+        document.getElementById('writeyourmessage').value = user.writeyourmessage;
+    } else {
+        console.log('No matching detail found');
+    }
+}
+</script>
+
+
+</html>
+
+
+
+
+function autofill() {
+    const mailvalue = document.getElementById('email').value;
+    const checking = details.find(detail => detail.email === mailvalue);
+    var confirmation = confirm('Hello    do you sure you want to autofill details')
+
+
+    if (checking) {
+
+        if(confirmation){
+            document.getElementById('fn').value = checking.firstname;
+        document.getElementById('lastname').value = checking.lastname;
+        document.getElementById('Phonenumber').value = checking.Phonenumber;
+}
+
+    } else {
+        console.log('No matching detail found');
+    }
+}
+
+ 

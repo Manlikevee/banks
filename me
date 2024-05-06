@@ -1,0 +1,31 @@
+function autofill (){
+    console.log('...')
+    const emailvalue=document.getElementById('email')
+    const find =details.find(detail => detail.mail === emailvalue)
+
+
+
+}
+
+function autofil(){
+    console.log('typing')
+    const mailvalue = document.getElementById('mail').value;
+    const find = details.find(detail => detail.mail === mailvalue)
+
+
+
+
+
+    if (find) {
+        var confirmation = confirm(Are You ${find.fname}?, and do you want to auto fill your details)
+        if(confirmation){
+            document.getElementById('fn').value = find.fname;
+        document.getElementById('ln').value = find.lname;
+        document.getElementById('num').value = find.num
+        }
+        else {
+        console.log('No matching detail found');
+    }
+
+    } 
+}
